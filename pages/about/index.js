@@ -1,25 +1,29 @@
-import React from 'react'
-import Head from 'next/head'
-import Nav from '../../components/nav'
-import styles from "./styles.styl"
+import React from "react";
+import Head from "next/head";
+import Nav from "../../components/nav";
+import classNames from 'classnames/bind'
+import { connect } from "react-redux";
+import css from "./styles.styl";
 
-const Home = () => (
-  <div>
+const cx = classNames.bind(css);
+
+const About = ({ list }) => (
+  <>
     <Head>
-      <title>Home</title>
-      <link rel='icon' href='/favicon.ico' />
+      <title>About</title>
+      <link rel="icon" href="/favicon.ico" />
     </Head>
 
     <Nav />
 
-    <div className='hero'>
-      <h1 className='title'>Welcome to about page!</h1>
+    <div className="hero">
+      <h1 className="title">Welcome to about page!</h1>
 
-      <div className={styles.stark}>This is about page </div>
+      <div className={css.stark}>This is about page </div>
 
-      <p className='description'>
-        To get started, edit <code>pages/index.js</code> and save to reload.
-      </p>
+      <ul className={cx('list', 'description')}>
+        {list && list.map(i => <li key={i.title}>{i.title}</li>)}
+      </ul>
     </div>
 
     <style jsx>{`
@@ -68,7 +72,24 @@ const Home = () => (
         color: #333;
       }
     `}</style>
-  </div>
-)
+  </>
+);
 
-export default Home
+About.getInitialProps = async ({ store}) => {
+  await store.dispatch.demo.query();
+  return {};
+}
+
+const mapState = ({ demo }) => {
+  console.log(demo);
+  return { ...demo };
+};
+
+const mapDispatch = dispatch => ({
+  query: () => dispatch.demo.query()
+});
+
+export default connect(
+  mapState,
+  mapDispatch
+)(About);

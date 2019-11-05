@@ -1,9 +1,10 @@
 import React from 'react'
 import Head from 'next/head'
 import Nav from '../components/nav'
-// import styles from "./styles.styl"
+import styles from "./styles.styl"
+import { connect } from 'react-redux'
 
-const Home = () => (
+const Home = ({ user }) => (
   <div>
     <Head>
       <title>Home</title>
@@ -15,11 +16,10 @@ const Home = () => (
     <div className='hero'>
       <h1 className='title'>Welcome to Next.js Home page!</h1>
 
-      {/* <div className={styles.stark}>Hi stark</div> */}
-      <div className={'title styles.stark'}>Hi stark</div>
+      <div className={styles.stark}>Hi {user.name}</div>
 
       <p className='description'>
-        To get started, edit <code>pages/index.js</code> and save to reload.
+        {user.info}
       </p>
 
       <div className='row'>
@@ -90,4 +90,22 @@ const Home = () => (
   </div>
 )
 
-export default Home
+Home.getInitialProps = async ({ store}) => {
+  await store.dispatch.home.getUser();
+  return {};
+}
+
+const mapState = ({ home }) => {
+  console.log(home);
+  return { ...home };
+};
+
+const mapDispatch = dispatch => ({
+  getUser: () => dispatch.home.getUser()
+});
+
+export default connect(
+  mapState,
+  mapDispatch
+)(Home);
+
