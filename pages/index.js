@@ -2,6 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import { connect } from 'react-redux';
 import styles from './styles.styl';
+import { checkServer } from '../utils';
 
 const Home = ({ user }) => (
   <div>
@@ -79,7 +80,9 @@ const Home = ({ user }) => (
 );
 
 Home.getInitialProps = async ({ store }) => {
-  await store.dispatch.home.getUser();
+  if (checkServer()) {
+    await store.dispatch.home.getUser();
+  }
   return {};
 };
 

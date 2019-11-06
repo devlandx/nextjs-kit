@@ -2,8 +2,8 @@ import React from 'react';
 import Head from 'next/head';
 import classNames from 'classnames/bind';
 import { connect } from 'react-redux';
-import { Nav } from '../../components';
 import css from './styles.styl';
+import { checkServer } from '../../utils';
 
 const cx = classNames.bind(css);
 
@@ -74,7 +74,9 @@ const About = ({ list }) => (
 );
 
 About.getInitialProps = async ({ store }) => {
-  await store.dispatch.demo.query();
+  if (checkServer()) {
+    await store.dispatch.demo.query();
+  }
   return {};
 };
 
