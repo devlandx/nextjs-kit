@@ -1,19 +1,19 @@
-import React from 'react'
-import Link from 'next/link'
+import React from 'react';
+import Link from 'next/link';
 
 const links = [
   { href: '/blog', label: 'blog' },
   { href: '/about', label: 'about' }
 ].map(link => {
-  link.key = `nav-link-${link.href}-${link.label}`
-  return link
-})
+  link.key = `nav-link-${link.href}-${link.label}`;
+  return link;
+});
 
 const Nav = () => (
   <nav>
     <ul>
       <li>
-        <Link href='/'>
+        <Link href="/">
           <a>Home</a>
         </Link>
       </li>
@@ -47,10 +47,10 @@ const Nav = () => (
       a {
         color: #067df7;
         text-decoration: none;
-        font-size: 13px;
+        font-size: 16px;
       }
     `}</style>
   </nav>
-)
+);
 
-export default Nav
+export default Nav;

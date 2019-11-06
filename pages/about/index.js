@@ -2,7 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import classNames from 'classnames/bind';
 import { connect } from 'react-redux';
-import Nav from '../../components/nav';
+import { Nav } from '../../components';
 import css from './styles.styl';
 
 const cx = classNames.bind(css);
@@ -13,8 +13,6 @@ const About = ({ list }) => (
       <title>About</title>
       <link rel="icon" href="/favicon.ico" />
     </Head>
-
-    <Nav />
 
     <div className="hero">
       <h1 className="title">Welcome to about page!</h1>
