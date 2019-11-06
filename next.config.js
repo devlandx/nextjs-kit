@@ -22,12 +22,12 @@ const nextConfig = {
 
 module.exports = withPlugins(
   [
-    // [
-    //   withTM,
-    //   {
-    //     transpileModules: ['@kkb/daji']
-    //   }
-    // ],
+    [
+      withTM,
+      {
+        transpileModules: ['@kkb/daji']
+      }
+    ],
     [
       stylus,
       {

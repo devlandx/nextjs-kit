@@ -21,7 +21,7 @@
     "koa": "^2.11.0",
     "koa-router": "^7.4.0",
     "koa2-connect": "^1.0.2",
-    "next": "9.0.2",
+    "next": "v9.1.2",
     "next-compose-plugins": "^2.2.0",
     "next-transpile-modules": "^2.3.1",
     "react": "16.11.0",
