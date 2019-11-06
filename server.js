@@ -12,7 +12,7 @@ const handle = app.getRequestHandler();
 // process.exit(1)
 
 Sentry.init({
-  dsn: 'https://1a70e9533cb2446ca5607bbb8f33f86c@am.kaikeba.com/3'
+  dsn: 'https://d000a97c650e45fbbfa8b828d7a2ad8f@am.kaikeba.com/2'
 });
 
 // 客户端跨域代理
