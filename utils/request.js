@@ -1,4 +1,3 @@
-import React from 'react';
 import axios from 'axios';
 import config from './config';
 
@@ -18,13 +17,13 @@ axios.interceptors.response.use(
       return;
     }
     const res = err.response;
-    if ([500, 502, 503].indexOf(err.response.status) > -1) {
+    if ([500, 502, 503].indexOf(res.status) > -1) {
       console.error('500服务端错误，请稍后重试！');
-    } else if (err.response.status === 401) {
+    } else if (res.status === 401) {
       console.error('需要登陆授权');
-    } else if (err.response.status === 403) {
+    } else if (res.status === 403) {
       console.error('抱歉！你暂无权限操作此功能');
-    } else if ([400, 404].indexOf(err.response.status) > -1) {
+    } else if ([400, 404].indexOf(res.status) > -1) {
       console.error('400/404 接口请求失败，请重试！如有疑问，联系管理员。');
     }
   }
