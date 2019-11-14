@@ -15,7 +15,7 @@ export default {
   effects: {
     async getUser(payload, state) {
       const res = await request.get(
-        'https://mock.kaikeba.com/mock/5da5baccd5218b0021998f3b/demo/user'
+        ''
       );
       this.updateState({ user: res.data });
     }

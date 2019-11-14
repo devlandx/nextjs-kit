@@ -12,13 +12,13 @@ const handle = app.getRequestHandler();
 // process.exit(1)
 
 Sentry.init({
-  dsn: 'https://d000a97c650e45fbbfa8b828d7a2ad8f@am.kaikeba.com/2'
+  dsn: ''
 });
 
 // 客户端跨域代理
 const proxyTable = {
   '/node': {
-    target: 'http://test-weblearn.kaikeba.com',
+    target: '',
     changeOrigin: true
   }
 };
