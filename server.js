@@ -18,7 +18,7 @@ Sentry.init({
 // 客户端跨域代理
 const proxyTable = {
   '/node': {
-    target: '',
+    target: 'https://api.shudong.wang',
     changeOrigin: true
   }
 };
