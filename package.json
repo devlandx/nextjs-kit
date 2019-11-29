@@ -24,6 +24,7 @@
     "next": "9.1.4",
     "next-compose-plugins": "^2.2.0",
     "next-transpile-modules": "^2.3.1",
+    "postcss-pxtorem": "^4.0.1",
     "react": "16.11.0",
     "react-dom": "16.11.0",
     "react-redux": "^7.1.1",

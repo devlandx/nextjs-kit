@@ -35,6 +35,14 @@ module.exports = withPlugins(
         cssLoaderOptions: {
           importLoaders: 1,
           localIdentName
+        },
+        postcssLoaderOptions: {
+          // parser: 'sugarss',
+          config: {
+            ctx: {
+              theme: JSON.stringify(process.env.REACT_APP_THEME)
+            }
+          }
         }
       }
     ],

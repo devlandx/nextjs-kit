@@ -1,16 +1,24 @@
+/*
+ * @Author: starkwang
+ * @Contact me: https://shudong.wang/about
+ * @Date: 2019-11-21 15:25:24
+ * @LastEditors: starkwang
+ * @LastEditTime: 2019-11-27 18:30:56
+ * @Description: file content
+ */
 const Koa = require('koa');
 const next = require('next');
 const Router = require('koa-router');
 const proxyMiddleware = require('http-proxy-middleware');
 const c2k = require('koa2-connect');
 const Sentry = require('@sentry/node');
-const port = process.env.INIT_ENV === 'dev' ? 3800 : 80;
-
+// const routes = require('./routes');
 const dev = process.env.NODE_ENV === 'development';
 const app = next({ dev });
 const handle = app.getRequestHandler();
+// const handler = routes.getRequestHandler(app);
 // process.exit(1)
-
+const port = 3200;
 Sentry.init({
   dsn: ''
 });
@@ -33,9 +41,10 @@ app.prepare().then(() => {
     }
     router.get('*', c2k(proxyMiddleware(options.filter || context, options)));
   });
-  router.get('/a', async ctx => {
+  router.get('/a/:id', async ctx => {
+    console.log('ctx.query', ctx);
     await app.render(ctx.req, ctx.res, '/b', ctx.query);
-    ctx.respond = false;
+    // ctx.respond = false;
   });
   router.get('/b', async ctx => {
     await app.render(ctx.req, ctx.res, '/a', ctx.query);
