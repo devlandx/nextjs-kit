@@ -14,9 +14,7 @@ export default {
   },
   effects: {
     async getUser(payload, state) {
-      const res = await request.get(
-        ''
-      );
+      const res = await request.get('');
       this.updateState({ user: res.data });
     }
   }
