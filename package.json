@@ -1,6 +1,6 @@
 {
   "name": "with-next-stylus",
-  "version": "0.1.0",
+  "version": "0.1.0-canary.0",
   "private": true,
   "scripts": {
     "dev": "cross-env  NODE_ENV=development INIT_ENV=dev node server",
@@ -23,7 +23,9 @@
     "koa2-connect": "^1.0.2",
     "next": "9.1.4",
     "next-compose-plugins": "^2.2.0",
+    "next-nprogress": "^1.4.0",
     "next-transpile-modules": "^2.3.1",
+    "nprogress": "^0.2.0",
     "postcss-pxtorem": "^4.0.1",
     "react": "16.11.0",
     "react-dom": "16.11.0",
