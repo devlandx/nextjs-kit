@@ -8,29 +8,15 @@
  */
 const Koa = require('koa');
 const next = require('next');
-
-// const proxyMiddleware = require('http-proxy-middleware');
-// const c2k = require('koa2-connect');
 const Sentry = require('@sentry/node');
 const dev = process.env.NODE_ENV === 'development';
 const app = next({ dev });
-
 const router = require('./server/routes')(app);
 const server = new Koa();
-// const handler = routes.getRequestHandler(app);
-// process.exit(1)
 const port = 3200;
 Sentry.init({
   dsn: ''
 });
-
-// 客户端跨域代理
-// const proxyTable = {
-//   '/node': {
-//     target: 'https://api.shudong.wang',
-//     changeOrigin: true
-//   }
-// };
 
 app.prepare().then(() => {
   server.use(async (ctx, nxt) => {
