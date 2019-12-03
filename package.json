@@ -1,6 +1,6 @@
 {
   "name": "nextjs-kit",
-  "version": "v1.0.0",
+  "version": "1.0.0-canary.0",
   "private": true,
   "scripts": {
     "dev": "cross-env  NODE_ENV=development INIT_ENV=dev node server",
